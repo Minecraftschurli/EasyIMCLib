@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
@@ -16,7 +17,7 @@ import java.util.function.Supplier;
  */
 @SuppressWarnings("unused")
 public final class IMCHandler {
-    private static final Map<String, IMCHandler> HANDLERS = new HashMap<>();
+    private static final Map<String, IMCHandler> HANDLERS = new ConcurrentHashMap<>();
     private static final String RECEIVED_IMC = "Received IMC message with method '{}' from '{}'";
     private static final String NO_HANDLER = RECEIVED_IMC + ", but no handler for {0} is available!";
 
