@@ -61,6 +61,13 @@ minecraft {
     mappings channel: "${project.mappings_channel}", version: "${project.mappings_version}"
 }
 
+configurations {
+    deobfJar {
+        canBeConsumed = true
+        canBeResolved = false
+    }
+}
+
 repositories {
     mavenLocal()
     mavenCentral()
@@ -106,8 +113,9 @@ jar {
     finalizedBy('reobfJar')
 }
 
-task deobfJar(type: Jar) {
+task deobfJar(type: Jar, dependsOn: classes) {
     archiveClassifier.set('deobf')
+    from sourceSets.main.output
 }
 
 artifacts {
@@ -115,6 +123,7 @@ artifacts {
     archives deobfJar
     archives sourcesJar
     archives javadocJar
+    deobfJar(deobfJar)
 }
 
 tasks.withType(GenerateModuleMetadata) {
