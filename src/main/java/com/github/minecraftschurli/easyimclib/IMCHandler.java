@@ -11,6 +11,9 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
+/**
+ * An IMCHandler holds all IMCMethods for a mod.
+ */
 @SuppressWarnings("unused")
 public final class IMCHandler {
     private static final Map<String, IMCHandler> HANDLERS = new ConcurrentHashMap<>();
