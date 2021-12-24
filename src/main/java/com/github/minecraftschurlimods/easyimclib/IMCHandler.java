@@ -1,4 +1,4 @@
-package com.github.minecraftschurli.easyimclib;
+package com.github.minecraftschurlimods.easyimclib;
 
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
